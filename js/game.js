@@ -228,7 +228,7 @@ var BattleScene = new Phaser.Class({
     create: function ()
     {
         // set the background of the main scene green
-        this.cameras.main.setBackgroundColor('rgba(0, 200, 0, 0.5)');
+        // this.cameras.main.setBackgroundColor('rgba(0, 200, 0, 0.5)');
         // Run UI Scene at the same time
         this.scene.run('UIScene');
     }
@@ -244,18 +244,20 @@ var UIScene = new Phaser.Class({
     {
         Phaser.Scene.call(this, { key: 'UIScene' });
     },
- 
-    create: function ()
-    {       
+
+    preload: function() {
+        this.load.image('dgn', 'assets/dngn_strch.jpg');
+    },
+
+    create: function (){   
+        this.add.image(160,120, 'dgn');
         this.graphics = this.add.graphics();
-        this.graphics.lineStyle(1, 0xffffff);
-        this.graphics.fillStyle(0x031f4c, 1);        
-        this.graphics.strokeRect(2, 150, 90, 100);
-        this.graphics.fillRect(2, 150, 90, 100);
-        this.graphics.strokeRect(95, 150, 90, 100);
-        this.graphics.fillRect(95, 150, 90, 100);
-        this.graphics.strokeRect(188, 150, 130, 100);
-        this.graphics.fillRect(188, 150, 130, 100);
+        this.graphics.lineStyle(1, 0xfaea0c);
+        this.graphics.fillStyle(0x5f7d7d, 1);        
+        this.graphics.strokeRect(320, 0, 320, 480);
+        this.graphics.fillRect(320, 0, 320, 480);
+        this.graphics.strokeRect(0, 240, 318, 240);
+        this.graphics.fillRect(0, 240, 318, 240);
     }
 });
 
